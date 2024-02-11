@@ -30,6 +30,9 @@ Backend repository: https://github.com/iemrebulut/LaravelCase.git
 - (POST) login: Login işlemi için gerekli endpoint.
     - Body: {"email":"admin@admin.com", "password":"123456"}
 - (POST) logout: Logout işlemi için gerekli endpoint. Authorization: Bearer Token gereklidir.
-- (POST) order: Sipariş oluşturmak için gerekli endpoint. Birden fazla ürün ile işlem yapılabilir. "quantity" ile üründen kaç adet sipariş verildiği bildirilir.
+- (POST) order: Sipariş oluşturmak için gerekli endpoint. Birden fazla ürün ile işlem yapılabilir. "quantity" ile üründen kaç adet sipariş verildiği bildirilir. Authorization: Bearer Token gereklidir.
     - Body: [{"productId":3, "quantity":1},{"productId":5,"quantity":1}]
-- (GET) order/{orderId}: Sipariş bilgilerini döndüren endpoint. Siparişteki ürünler, kampanyalar, sipariş tutarı bilgilerine ulaşılabilir. Bearer Token gereklidir.
+- (GET) order/list/{orderId}: Sipariş bilgilerini döndüren endpoint. Siparişteki ürünler, kampanyalar, sipariş tutarı bilgilerine ulaşılabilir. Bearer Token gereklidir.
+- (POST) order/delete: Siparişi silen endpoint. Sipariş id bilgisi ile işlem yapılır. Authorization: Bearer Token gereklidir.
+    - Body: [{"orderId":1}]
+- (GET) order/discounts/{orderId}: Sipariş içerisindeki kampanya bilgilerini döndüren endpoint. Sipariş id bilgisi ile işlem yapılır. Authorization: Bearer Token gereklidir.
